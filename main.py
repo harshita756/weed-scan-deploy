@@ -2,6 +2,7 @@ from pathlib import Path
 from threading import Lock
 from typing import Literal
 from fastapi.staticfiles import StaticFiles
+
 import base64
 import logging
 import os
@@ -23,6 +24,7 @@ from history_db import (
     get_scan,
 )
 from lstm_predictor import predict_demo
+from auth import router as auth_router
 
 
 BASE = Path(__file__).resolve().parent
@@ -53,6 +55,7 @@ gemini_client = (
 
 app = FastAPI(title="Weed Scan Backend")
 initialize_database()
+app.include_router(auth_router) 
 
 app.add_middleware(
     CORSMiddleware,
