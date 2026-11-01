@@ -1,4 +1,8 @@
-"""Login and register endpoints for the Weed Scan backend."""
+"""Login and register endpoints for the Weed Scan backend.
+
+Uses only the Python standard library plus FastAPI/Pydantic (already needed
+by your backend). Users are stored in a local SQLite file (users.db).
+"""
 
 import hashlib
 import hmac
