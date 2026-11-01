@@ -1,3 +1,4 @@
+
 FROM python:3.12-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -23,7 +24,7 @@ RUN python -m pip install --upgrade pip \
        --index-url https://download.pytorch.org/whl/cpu \
     && python -m pip install -r requirements.txt
 
-COPY main.py history_db.py lstm_predictor.py ./
+COPY main.py auth.py history_db.py lstm_predictor.py ./
 COPY best.pt weed_lstm_demo.pt ./
 COPY web/ ./web/
 
